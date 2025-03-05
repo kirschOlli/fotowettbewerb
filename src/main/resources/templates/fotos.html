@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alle Fotos</title>
+</head>
+<body>
+<h1>Alle Fotos</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Pfad</th>
+    </tr>
+    <tr th:each="foto : ${fotos}">
+        <td th:text="${foto.id}"></td>
+        <td th:text="${foto.filePath}"></td>
+    </tr>
+</table>
+</body>
+</html>
