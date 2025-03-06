@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bild hochladen</title>
+</head>
+<body>
+<h1>Bild hochladen</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="username">Benutzername:</label>
+    <input type="text" id="username" name="username" th:value="${username}" readonly>
+    <br>
+    <input type="file" name="file" required>
+    <br>
+    <button type="submit">Hochladen</button>
+</form>
+
+<p th:text="${message}"></p>
+
+<!-- Link zurück zur User-Auswahl -->
+<a href="/users">← Zurück zur User-Auswahl</a>
+
+</body>
+</html>

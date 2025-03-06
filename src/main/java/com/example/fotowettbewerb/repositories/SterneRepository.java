@@ -1,7 +1,7 @@
 package com.example.fotowettbewerb.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.fotowettbewerb.Stars;
+import com.example.fotowettbewerb.Sterne;
 
-public interface StarsRepository extends JpaRepository<Stars, Long> {
+public interface SterneRepository extends JpaRepository<Sterne, Long> {
 }

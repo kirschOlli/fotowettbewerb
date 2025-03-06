@@ -6,14 +6,20 @@
 <body>
 <h1>Alle Fotos</h1>
 <table border="1">
-    <tr>
+    <!--<tr>
         <th>ID</th>
         <th>Pfad</th>
     </tr>
     <tr th:each="foto : ${fotos}">
         <td th:text="${foto.id}"></td>
         <td th:text="${foto.filePath}"></td>
+    </tr> -->
+    <tr>
+        <td th:text="${fotos[0].id}"></td>
+        <td th:text="${fotos[0].filePath}"></td>
     </tr>
+
+
 </table>
 </body>
 </html>

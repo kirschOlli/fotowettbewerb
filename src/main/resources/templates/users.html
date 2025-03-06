@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Auswahl</title>
+</head>
+<body>
+<h1>Wähle einen Benutzer</h1>
+
+<form action="/upload" method="get" enctype="multipart/form-data">
+    <ul>
+        <li th:each="user : ${users}">
+            <input type="radio" name="username" th:value="${user.username}" required>
+            <span th:text="${user.username}"></span>
+        </li>
+    </ul>
+    <button type="submit">Weiter zum Upload</button>
+</form>
+
+</body>
+</html>

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "sterne")
-public class Stars {
+public class Sterne {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

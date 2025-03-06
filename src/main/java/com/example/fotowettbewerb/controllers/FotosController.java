@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-import org.springframework.stereotype.Controller;
 
 @Controller
 public class FotosController {
@@ -18,9 +17,21 @@ public class FotosController {
         this.fotosRepository = fotosRepository;
     }
 
-    @GetMapping("/fotos")
+   /* @GetMapping("/fotos")
     public String alleFotosAnzeigen(Model model) {
         model.addAttribute("fotos", fotosRepository.findAll());
         return "fotos";
+    }*/
+    @GetMapping("/fotos")
+    public String alleFotosAnzeigen(Model model) {
+        Iterable<Fotos> alleFotos = fotosRepository.findAll();
+
+        for (Fotos foto : alleFotos) {
+            System.out.println("Geladenes Foto: " + foto.getId() + " - " + foto.getFilePath());
+        }
+
+        model.addAttribute("fotos", alleFotos);
+        return "fotos";
     }
+
 }
