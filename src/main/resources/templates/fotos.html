@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/alle_fotos_styles.css">
+    <title>Fotos im Grid</title>
+
+</head>
+<body>
+<header>
+    <h1>Hallo <span th:text="${session.loggedInUser.username}"></span>! Bitte bewerte die Bilder</h1>
+</header>
+<main>
+    <div class="foto-grid">
+
+        <div th:each="foto : ${fotos}" class="foto-item">
+            <img th:src="${foto.filePath}" alt="Foto">
+            <form th:action="@{/bewerten/{id}(id=${foto.id})}" method="post" class="upload-stern-container">
+                <span class="upload_username" th:text="'  :  ' + ${foto.user.username}"></span>
+                <span class="anzahl-sterne" th:text="${sterneMap[foto.id]}">0</span>
+                <button class ="stern" type="submit">⭐</button>
+            </form>
+
+        </div>
+    </div>
+</main>
+<a href="/logout">Abmelden</a>
+</body>
+</html>
+

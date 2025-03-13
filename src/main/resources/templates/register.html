@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/register_style.css}">
+    <title>Registrierung</title>
+</head>
+<body>
+<h2>Registrierung</h2>
+<main>
+    <div th:if="${message}" style="color: green;">
+        <p th:text="${message}"></p>
+    </div>
+
+    <div th:if="${error}" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form th:action="@{/register}" method="post" th:object="${user}">
+        <label>Username:</label>
+        <input type="text" th:field="*{username}" required>
+        <br>
+
+        <label>Birthday:</label>
+        <input type="date" th:field="*{birthday}" required>
+        <br>
+
+
+        <button type="submit">Registrieren</button>
+    </form>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fotowettbewerb</title>
+</head>
+<body>
+<h1>Willkommen beim Fotowettbewerb!</h1>
+<h2>Bitte melde dich an</h2>
+
+<form th:action="@{/login}" method="post">
+    <label for="username">Benutzername:</label>
+    <input type="text" id="username" name="username" required>
+    <button type="submit">Anmelden</button>
+</form>
+
+<a href="/logout">Abmelden</a>
+
+
+</body>
+</html>
