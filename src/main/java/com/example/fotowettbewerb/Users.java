@@ -1,7 +1,6 @@
 package com.example.fotowettbewerb;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,12 +17,13 @@ public class Users {
     private LocalDate registrationDate;
     @Column(nullable = false)
     private LocalDate birthday;
+
     @OneToMany(mappedBy = "user")
     private List<Fotos> fotosList;
 
     //Standard Konstruktor
     public Users() {
-
+        this.registrationDate = LocalDate.now();
     }
 
     //getter und setter

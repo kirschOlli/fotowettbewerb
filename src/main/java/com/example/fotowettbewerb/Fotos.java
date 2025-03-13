@@ -3,6 +3,7 @@ package com.example.fotowettbewerb;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "fotos")
@@ -19,6 +20,11 @@ public class Fotos {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Users user;
+
+    @OneToMany(mappedBy = "foto", cascade = CascadeType.ALL)
+    private List<Sterne> sterne;
+
+
 
     //Standard Konstruktor
     public Fotos() {

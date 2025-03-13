@@ -5,9 +5,16 @@
 </head>
 <body>
 <h1>Willkommen beim Fotowettbewerb!</h1>
+<h2>Bitte melde dich an</h2>
 
-    <a href="/fotos">zu den fotos</a>
-<a href="/users">zur user auswahl</a>
+<form th:action="@{/login}" method="post">
+    <label for="username">Benutzername:</label>
+    <input type="text" id="username" name="username" required>
+    <button type="submit">Anmelden</button>
+</form>
+
+<a href="/logout">Abmelden</a>
+
 
 </body>
 </html>

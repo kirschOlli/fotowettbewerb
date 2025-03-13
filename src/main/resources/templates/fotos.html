@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Alle Fotos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/alle_fotos_styles.css">
+    <title>Fotos im Grid</title>
+
 </head>
 <body>
-<h1>Alle Fotos</h1>
-<table border="1">
-    <!--<tr>
-        <th>ID</th>
-        <th>Pfad</th>
-    </tr>
-    <tr th:each="foto : ${fotos}">
-        <td th:text="${foto.id}"></td>
-        <td th:text="${foto.filePath}"></td>
-    </tr> -->
-    <tr>
-        <td th:text="${fotos[0].id}"></td>
-        <td th:text="${fotos[0].filePath}"></td>
-    </tr>
+<header>
+    <h1>Hallo <span th:text="${session.loggedInUser.username}"></span>! Bitte bewerte die Bilder</h1>
+</header>
+<main>
+    <div class="foto-grid">
 
+        <div th:each="foto : ${fotos}" class="foto-item">
+            <img th:src="${foto.filePath}" alt="Foto">
+            <form th:action="@{/bewerten/{id}(id=${foto.id})}" method="post" class="upload-stern-container">
+                <span class="upload_username" th:text="'  :  ' + ${foto.user.username}"></span>
+                <span class="anzahl-sterne" th:text="${sterneMap[foto.id]}">0</span>
+                <button class ="stern" type="submit">⭐</button>
+            </form>
 
-</table>
+        </div>
+    </div>
+</main>
+<a href="/logout">Abmelden</a>
 </body>
 </html>
+

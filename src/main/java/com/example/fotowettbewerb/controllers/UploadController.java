@@ -56,7 +56,8 @@ public class UploadController {
             if (optionalUser.isPresent()) {
                 Users user = optionalUser.get();
 
-                Fotos foto = new Fotos(filePath.toString(),user);
+                String fileUrl = "/uploads/" + username + "/" + fileName; // Relativer Pfad für die Anzeige
+                Fotos foto = new Fotos(fileUrl,user);
                 fotosRepository.save(foto);
 
                 model.addAttribute("message", "Datei erfolgreich hochgeladen:" + filePath);

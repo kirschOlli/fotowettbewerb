@@ -19,4 +19,20 @@ public class Sterne {
     @ManyToOne
     @JoinColumn(name ="user_id", nullable = false)
     private Users user;
+
+    public void setUser(Users user) {
+        this.user=user;
+    }
+
+    public void setFoto(Fotos foto) {
+        this.foto = foto;
+    }
+
+    public void setRatingDate(LocalDate ratingDate) {
+        this.ratingDate = ratingDate;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
